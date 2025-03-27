@@ -8,6 +8,7 @@ def extract_features(events):
       "down": 123456789,
       "up": 123456900
     }
+    Returns a DataFrame with numeric timing features.
     """
     features = []
 
@@ -15,14 +16,25 @@ def extract_features(events):
         prev = events[i - 1]
         curr = events[i]
 
-        hold_time = curr["up"] - curr["down"]
-        flight_time = curr["down"] - prev["down"]  # Down–Down time
-        latency = curr["down"] - prev["up"]        # Up–Down (between keys)
+        # Individual key hold times
+        prev_hold = prev["up"] - prev["down"]
+        curr_hold = curr["up"] - curr["down"]
+
+        # Between-key timings
+        down_down = curr["down"] - prev["down"]
+        up_down = curr["down"] - prev["up"]
+        up_up = curr["up"] - prev["up"]
+        down_up = curr["up"] - prev["down"]
+        inter_key_total = curr["up"] - prev["down"]
 
         features.append({
-            "hold_time": hold_time,
-            "flight_time": flight_time,
-            "latency": latency
+            "prev_hold_time": prev_hold,
+            "curr_hold_time": curr_hold,
+            "down_down": down_down,
+            "up_down": up_down,
+            "up_up": up_up,
+            "down_up": down_up,
+            "inter_key_total_time": inter_key_total
         })
 
     return pd.DataFrame(features)

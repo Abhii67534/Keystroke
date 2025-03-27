@@ -1,0 +1,2 @@
+session_duration,avg_packet_size,total_packets,dns_queries,http_ratio,https_ratio,timestamp
+140.52,1196.14,70,4,0.3,0.7,2025-03-27T18:47:35.973787+00:00
