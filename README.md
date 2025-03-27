@@ -23,12 +23,12 @@ This project implements an **AI-powered behavioral biometrics system** that uses
 ## 🧪 Demo Screenshots
 
 ### 📝 Enrollment & Verification
-![Enrollment UI](screenshots/enroll.png)
-![Verification Result](screenshots/verify.png)
+![Enrollment UI](screenshots/approve.png)
+![Verification Result](screenshots/deny.png)
 
 ### 📊 Behavioral Drift Charts
-![Keystroke Drift](screenshots/keystroke-drift.png)
-![Network Drift](screenshots/network-drift.png)
+![Keystroke Drift and Network Drift](screenshots/charts.png)
+
 
 ---
 
